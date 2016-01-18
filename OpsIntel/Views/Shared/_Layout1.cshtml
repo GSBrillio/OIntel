@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+
+    <link href="~/Content/home.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="border">
+            @if (Request.IsAuthenticated)
+            {
+                <strong>@Html.Encode(User.Identity.Name)</strong>
+                @Html.ActionLink("Log Out", "Logout", "User")
+            }
+            else
+            {
+                @Html.ActionLink("Register", "Register", "Home", null, new { @class = "actionLink" })
+                <span> | </span>
+                @Html.ActionLink("Log In", "Login", "Home", null, new { @class = "actionLink" })
+            }
+        </div>
+        @RenderBody()
+
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

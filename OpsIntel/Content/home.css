@@ -1,0 +1,43 @@
+﻿.border {
+    border-top-style:none;
+    height:30px; 
+    background-color:lightskyblue; 
+    font-family:Tahoma; 
+    font-size:medium; 
+    color:aqua;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    text-align:right;
+    padding-right:25px;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+}
+.field_set{
+ border-color:lightskyblue;
+ width:500px;
+ height:170px;
+ color:darkblue;
+}
+.Registerfield_set{
+     border-color:lightskyblue;
+     width:500px;
+     height:250px;
+     color:darkblue;    
+}
+.buttonCls {
+    background-color:lightblue;
+    border-color: lightcyan;
+}
+ .actionLink
+{
+ 
+ padding: 2px;
+ 
+ background-color:lightskyblue;
+}

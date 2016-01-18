@@ -1,0 +1,74 @@
+﻿@model OpsIntel.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, " User Registration Failed, fields.");
+      
+        <br />
+        <div align="center" style="height:500px">
+            
+            <fieldset class="Registerfield_set">
+                <legend><h3>User Registration Form</h3></legend>
+                <br />
+
+                <table align="center">
+                    <tr>
+                        <td><div>@Html.LabelFor(u => u.FirstName)</div></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(u => u.FirstName)
+                                @Html.ValidationMessageFor(u => u.FirstName)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div>@Html.LabelFor(u => u.LastName)</div></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(u => u.LastName)
+                                @Html.ValidationMessageFor(u => u.LastName)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div>@Html.LabelFor(u => u.Username)</div></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(u => u.Username)
+                                @Html.ValidationMessageFor(u => u.Username)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div>@Html.LabelFor(u => u.Email)</div></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(u => u.Email)
+                                @Html.ValidationMessageFor(u => u.Email)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div >@Html.LabelFor(u => u.Password)</div></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.PasswordFor(u => u.Password)
+                                @Html.ValidationMessageFor(u => u.Password)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr><td width="40%">&nbsp;</td></tr>
+                    <tr><td align="center" colspan="2"><input type="submit" value="Register" class="buttonCls" /></td></tr>
+                </table>
+
+
+            </fieldset>
+        </div>
+    }
+</body>

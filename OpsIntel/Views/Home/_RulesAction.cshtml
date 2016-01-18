@@ -1,0 +1,49 @@
+﻿@model OpsIntel.ViewModel.RulesAction
+<script src="~/Scripts/jqPlot/jquery.min.js"></script>
+<link href="~/Scripts/jqPlot/jquery.jqplot.css" rel="stylesheet" />
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jqPlot/jquery.jqplot.js"></script>
+
+<script src="~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.dateAxisRenderer.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.highlighter.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.cursor.min.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+<script src="~/Scripts/view/vmDetails.js"></script>
+
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+</head>
+<div id="chart2" style="width:95%"></div>
+
+<br />
+<br />
+<div>
+    <p>
+        @Html.LabelFor(m => m.Name, new { style = "float:left" })
+        @Html.Label(":", new { style = "float:left;padding-right:5px "})
+    @Html.Label(Model.Name, new { style = "float:left; padding-right:50px" })
+</p>
+
+    <span> @Html.LabelFor(m => m.CPUs, new { style = "float:left" })
+    @Html.Label(":", new { style = "float:left;padding-right:5px" })
+    @Html.Label(Model.CPUs, new { style = "float:left;padding-right:50px" })</span>
+</div>
+
+
+<br />
+<br />
+
+<table id="gridVmDetails" style="width:55%; padding-left :30px"></table>
+<div id="test"></div>
+<div style="float:right">
+    <input type="submit" id="btnSave" value="Save" style="width:76px"/>
+
+    <input type="submit" id="btnCancel" value="Cancel" />
+</div>

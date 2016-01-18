@@ -1,0 +1,220 @@
+﻿
+@{
+    ViewBag.Title = "Ops Intel";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/Scripts/TreeView")
+        @Scripts.Render("~/Scripts/TreeViewCookie")*@
+
+    @*@Styles.Render("~/Content/Treeview")*@
+
+
+    <script src="~/Scripts/view/jquery.js"></script>
+    <script src="~/Scripts/view/jquery-ui.js"></script>
+    <link href="~/Scripts/view/jquery-ui.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />*@
+    <script src="~/Scripts/jquery.treeview.js"></script>
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <link href="~/Content/bootstrap/simple-sidebar.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/view/vmList.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script>
+        $(document).ready(function () {
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("active");
+            });
+            //     $("#treeview").treeview({
+            //         control: "#treecontrol",
+            //         persist: "cookie",
+            //         cookieId: "treeview-black"
+            //     });
+        });
+
+
+    </script>
+    <style>
+        #wrapper.active #sidebar-wrapper {
+            left: 50px;
+        }
+        #loading
+{
+   /*background:#fff url(~/Images/ajax-loader.gif) no-repeat center center;*/
+   height: 19px;
+   width: 220px;
+   position: fixed;
+   z-index: 1000;
+   left: 50%;
+   top: 50%;
+   margin: -25px 0 0 -25px;
+} 
+    </style>
+
+</head>
+<body>
+    
+    <div id="loading" style="display:none">
+        <p>
+            <img src="~/Images/ajax-loader.gif" /> Please Wait</p>
+    </div>
+    <div class="container body-content">
+    </div>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div id="dialog-message" title="Add new Virtual machine">
+                <div>
+                    <p>
+                        <table width="100%" height="300px" align="center">
+                            <tr>
+                                <td width="10%" align="left">
+                                    <label id="lblVmName">VM Name</label>
+                                    <label id="lblrequired" style="color:red">*</label>
+                                </td>
+                                <td width="40%" align="left">
+                                    <input type="text" id="txtVmName">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="left">
+                                    <label id="lblVmNameRequired" hidden="hidden" style="color:red" style="font-size:1px">Please provide the value</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" align="left">
+                                    <label id="lblVmDescription">VM Description</label>
+                                </td>
+                                <td width="70%" align="left">
+                                    <input type="text" id="txtVmDescription">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" align="left">
+                                    <label id="lblVmLocation">Location</label>
+                                </td>
+                                <td width="70%" align="left">
+                                    <select id="myLocation" style="width:inherit">
+                                        <option value="northeurope">North Europe</option>
+                                        <option value="eastus">East US</option>
+                                        <option value="centralus">Central US</option>
+                                        <option value="southcentralus">South Central US</option>
+                                        <option value="westus">West US</option>
+                                        <option value="eastus2">East US2</option>
+                                        <option value="westeurope">West Europe</option>
+                                        <option value="eastasia">East Asia</option>
+                                        <option value="southeastasia">SouthEast Asia</option>
+                                        <option value="japanwest">Japan West</option>
+                                        <option value="japaneast">Japan East</option>
+                                    </select>
+                                    @*<input type="text" id="txtLocation">*@
+                                </td>
+                            </tr>
+                            @*<tr>
+                                    <td width="30%" align="left">
+                                        <label id="lblVmPurpose">Purpose</label>
+                                    </td>
+                                    <td width="70%" align="left">
+                                        <input type="text" id="txtPurpose" >
+                                    </td>
+                                </tr>*@
+                            <tr>
+                                <td width="30%" align="left">
+                                    <label>Select a file:</label>
+                                </td>
+                                <td width="70%" align="left">
+                                    <input type="file" name="img" id="imgFile" width="50%">
+                                </td>
+
+                            </tr>
+                        </table>
+                    </p>
+                </div>
+            </div>
+            @*<span>
+                    <img src="/Content/images1/blackIconPencil.gif" id="imgAdd" alt="Edit"
+                         style="width:20px;height:20px;float:right;margin:20 20 0 0">
+
+                </span>*@
+
+            @*<ul class="sidebar-nav">
+                    <li class="sidebar-brand">Virtual Machines</li>
+                    <li><a href="#" id="vm0"></a> </li>
+                    <li><a href="#" id="vm1"></a> </li>
+                    <li><a href="#" id="vm2"></a> </li>
+                    <li>
+
+                    </li>
+                </ul>*@
+
+            <div>
+                <br />
+                <table>
+                    <tr>
+                        <td>
+                            <span>
+                             
+                                <img src="~/Images/symbol_add.png" id="imgAdd" alt="Edit" style="width:45px;height:45px" />
+                                @*<img src="~/Content/images/Plus25-25.png" id="newVmAdd" alt="Edit" />*@
+                            </span>
+                        </td>
+
+                        <td width="100%">
+                           
+                            &nbsp; <img src="~/Images/button_cancel.png" id="imgDelete" alt="Delete" style="width:25px;height:25px" />
+                        </td>
+                    <td>
+
+                        <div style="width:auto; background-color:aqua" align="right">
+                            @if (Request.IsAuthenticated)
+                            {
+                                <strong>@Html.Encode(User.Identity.Name)</strong>
+                                @Html.ActionLink("Log Out", "LogIn", "Home")
+                            }
+
+                        </div>
+                    </td>
+                    </tr>
+                    
+                </table>
+            </div>
+            <div></div>
+            <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;Virtual Machines</span>
+                <ul id="treeview" class="treeview-black">
+                    @*<li>
+                            <span>Virtual Machines</span>
+                            <ul id=”ul-vm”>
+                                @*<li><a href="#" id="vm0"></a> </li>
+                                    <li><a href="#" id="vm1"></a> </li>
+                                    <li><a href="#" id="vm2"></a> </li>
+                            </ul>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        @RenderBody()
+
+        @RenderSection("scripts", required: false)
+        <!-- /#page-content-wrapper -->
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿@model OpsIntel.ViewModel.RulesAction
+<link href="~/Scripts/jqPlot/jquery.jqplot.css" rel="stylesheet" />
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jqPlot/jquery.min.js"></script>
+<script src="~/Scripts/view/jquery-ui.js"></script>
+<script src="~/Scripts/jqPlot/jquery.jqplot.js"></script>
+
+<script src="~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.dateAxisRenderer.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.highlighter.min.js"></script>
+<script src="~/Scripts/jqPlot/plugins/jqplot.cursor.min.js"></script>
+<script src="~/Scripts/i18n/grid.locale-he.js"></script>
+
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+<script src="~/Scripts/view/vmList.js"></script>
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        // The plugin shows the treecontrol after the
+        // collapse, expand and toggle events are hooked up
+        // Just hide the links.
+        //$('#treecontrol a').hide();
+
+        //// On click of your custom links, button, etc
+        //// Trigger the appropriate treecontrol click
+        //$('#expandAll').click(function() {        
+        //    $('#treecontrol a:eq(1)').click();    
+        //});
+
+        //$('#collapseAll').click(function() {
+        //    $('#treecontrol a:eq(0)').click();        
+        //});
+
+        // Render the treeview per usual.    
+        $("#treeview").treeview({
+        	control: "#treecontrol",
+        	persist: "cookie",
+        	cookieid: "treeview-black"
+        });
+    });
+</script>*@
+<br />
+<br />
+<div align="right" style="width:1000px"><table><tr><td><h4 style="color:red">Welcome @TempData["Username"]</h4></td><td>&nbsp;&nbsp;</td><td><h4>@Html.ActionLink("LogOut", "Logout", "Home")</h4></td></tr></table></div>
+<div id="chart1" style="width:95%"></div>
+<div id="chart2" style="width:95%"></div>
+<br />
+<style>
+    fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    background-color:#F5F5F5;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+
+}
+
+    legend.scheduler-border {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width:auto;
+        padding:0 2px;
+        border-bottom:none;
+        
+    }
+</style>
+<div id="VMTable">
+    @*<table id="VMTable" style="width:500px; padding-left :100px;border:1px"></table>*@
+    
+</div>
+
+
+<br />
+
+<table id="grid" style="width:55%; padding-left :30px"></table>
+
+

@@ -1,0 +1,50 @@
+﻿@model OpsIntel.Models.User
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+<body>
+
+    
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "Login Failed, check details");
+    <div align="center" style="height:200px">
+        <fieldset class="field_set">
+            <legend><h3>Login Form</h3></legend>
+            <br />
+
+            <table>
+                <tr>
+                    <td><div>@Html.LabelFor(u => u.Username)</div></td>
+                    <td>
+                        <div>
+                            @Html.TextBoxFor(u => u.Username)
+                            @Html.ValidationMessageFor(u => u.Username)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div>@Html.LabelFor(u => u.Password)</div></td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.PasswordFor(u => u.Password)
+                            @Html.ValidationMessageFor(u => u.Password)
+                        </div>
+                    </td>
+                </tr>
+                <tr><td width="40%">&nbsp;</td></tr>
+                <tr><td align="center" colspan="2"><input type="submit" value="Log In" class="buttonCls" /></td></tr>
+            </table>
+
+
+
+
+
+        </fieldset>
+    </div>
+    }
+
+</body>
